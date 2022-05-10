@@ -3,7 +3,7 @@ import { MdSearch, MdAccountCircle } from "react-icons/md";
 import { Link } from 'react-router-dom';
 function Header() {
     return (
-        <div className='bg-[#000000] py-4 px-20 flex items-center'>
+        <div className='bg-[#000000] bg-red py-4 px-20 flex items-center'>
             {/* <div className=" uppercase text-3xl font-extrabold text-white ">OSJD</div> */}
             <img src="/images/osjd_logo.png" alt="LOGO" className=' w-36  ' />
 
