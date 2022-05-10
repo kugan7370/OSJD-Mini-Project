@@ -12,6 +12,7 @@ function Header() {
                 <Link to='/Catgorary'> <li className='uppercase font-bold text-white'>about us</li> </Link>
                 <Link to='/service'><li className='uppercase font-bold text-white'>services</li> </Link>
                 <Link to='/contact'><li className='uppercase font-bold text-white'>contacts</li></Link>
+                <Link to='/signIn' className='uppercase font-bold text-white'>SignIn</Link>
 
             </ul>
 

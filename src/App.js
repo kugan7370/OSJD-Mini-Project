@@ -11,6 +11,7 @@ import Service from './Pages/Service';
 import About from './Pages/About';
 import Home from './Pages/Home';
 import SportsCat from './Pages/SportsCat';
+import SignIn from './Pages/SignIn';
 
 
 
@@ -28,6 +29,7 @@ function App() {
         <Route path="/Catgorary" element={<SportsCat/>} />
 
         <Route path="/service" element={<Service />} />
+        <Route path="/signIn" element={<SignIn/>}/>
       </Routes>
 
     </div>
