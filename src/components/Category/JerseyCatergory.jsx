@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-import { jerseyCatDatas } from '../Data/JerserCatergory';
+import { jerseyCatDatas } from '../../Data/JerserCatergory';
 function JerseyCatergory() {
 
 

@@ -1,9 +1,11 @@
 import React from 'react'
-import JerseyCatergory from '../components/JerseyCatergory'
+import SportsCat from '../components/Home/SportsCat'
 
 function Home() {
     return (
-        <JerseyCatergory />
+        <>
+        <SportsCat />
+        </>
     )
 }
 

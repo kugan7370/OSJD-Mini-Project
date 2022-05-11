@@ -1,8 +1,9 @@
 import React from 'react'
+import JerseyCatergory from '../components/Category/JerseyCatergory'
 
 function About() {
     return (
-        <div>About</div>
+        <JerseyCatergory />
     )
 }
 
