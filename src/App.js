@@ -20,20 +20,18 @@ import SignIn from './Pages/SignIn';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>Franks third project </code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="sum"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/Catgorary" element={<SportsCat/>} />
+
+        <Route path="/service" element={<Service />} />
+        <Route path="/SignIn" element={<SignIn />} />
+      </Routes>
+
     </div>
   );
 }
