@@ -11,7 +11,7 @@ function SportsCat() {
                         <span className='text-7xl font-bold'>Buy Your</span>
                         <span className='text-7xl font-bold '>jersy right now</span>
                         <div className="">
-                            <div className='bg-[#ff0c3c] rounded-3xl py-2 px-4 w-28 items-center justify-center mt-10'>
+                            <div className='bg-[#ff0c3c] flex rounded-3xl py-2 px-4 w-28 items-center justify-center mt-10'>
                                 <div className=''>BUY NOW</div>
                                 {/* #8b2a26 */}
                             </div>
