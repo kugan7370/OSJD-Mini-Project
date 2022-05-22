@@ -1,8 +1,9 @@
 import React from 'react'
 
 function TopArriavel() {
-  return (
-      <div className='flex flex-row justify-center mx-20 space-x-7 mt-10 mb-10'>
+    return (
+      <div className='bg-[#e7ebf7] pt-10 pb-10'>
+      <div className='flex flex-row justify-center mx-20 space-x-7 '>
           <div className='flex flex-col mt-10'>
               <span className='font-bold text-3xl'>Top New </span>
               <span className='font-bold text-3xl'> Arrivel Products</span>
@@ -10,7 +11,7 @@ function TopArriavel() {
                   <div>See all products</div>
               </div>
           </div>
-          <div className="w-1/5 shadow-lg p-5 bg-white hover:shadow-2xl duration-500" >
+          <div className="w-1/5 shadow-xl p-5 bg-white hover:shadow-2xl duration-500" >
               <img src="https://www.pngall.com/wp-content/uploads/5/Red-Jersey.png" className='w-full  cursor-pointer hover:scale-[105%] duration-500 ' alt='jersy' />
               <div className='flex flex-row justify-between mt-2 '>
                   <span className='font-medium text-sm '>Lactose Legend</span>
@@ -33,7 +34,9 @@ function TopArriavel() {
               </div>
           </div>
           
-    </div>
+            </div>
+        </div>
+        
   )
 }
 
