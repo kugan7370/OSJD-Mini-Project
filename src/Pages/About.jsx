@@ -6,7 +6,7 @@ function About() {
     return (
         <>
             <JerseyCatergory />
-            <SportsCategory />
+            {/* <SportsCategory /> */}
         </>
     )
 }

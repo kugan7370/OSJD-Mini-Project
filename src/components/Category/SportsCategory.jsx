@@ -14,13 +14,13 @@ function SportsCategory() {
             </div>
             <div className="grid grid-cols-4 gap-10">
                 {sports.map((sport) => (
-                    <div className="shadow-xl rounded-2xl overflow-hidden relative  ">
+                    <div key={sport.id} className="shadow-xl rounded-2xl overflow-hidden relative  ">
                         <div className="h-[220px] ">
                             <img className='w-full h-full  bg-contain   hover:scale-[110%]  duration-500' src={sport.image} alt="" />
                         </div>
                         <div className='hover:bg-black/60 duration-500'>
-                        <span className=' w-full h-full font-semibold text-white text-2xl absolute top-1/2 right-0 left-0 text-center ' >{sport.name}</span>
-                    
+                            <span className=' w-full h-full font-semibold text-white text-2xl absolute top-1/2 right-0 left-0 text-center ' >{sport.name}</span>
+
                         </div>
                     </div>
                 ))}

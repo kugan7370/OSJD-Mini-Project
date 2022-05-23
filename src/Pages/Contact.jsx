@@ -1,8 +1,9 @@
 import React from 'react'
+import Details from '../components/Details/Details'
 
 function Contact() {
     return (
-        <div>Contact</div>
+        <div className="">contacts</div>
     )
 }
 

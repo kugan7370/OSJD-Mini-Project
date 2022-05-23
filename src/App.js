@@ -10,6 +10,7 @@ import Contact from './Pages/Contact';
 import Service from './Pages/Service';
 import About from './Pages/About';
 import Home from './Pages/Home';
+import Details from './components/Details/Details';
 
 
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="/service" element={<Service />} />
+        <Route path="/detail/:id" element={<Details />} />
       </Routes>
 
     </div>
