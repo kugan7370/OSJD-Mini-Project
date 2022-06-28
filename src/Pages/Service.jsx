@@ -1,9 +1,14 @@
 import React from 'react'
 import Header from '../components/Service/Header'
+import Provide from '../components/Service/Provide'
 
 function Service() {
     return (
-        <Header />
+        <>
+            <Header />
+            <Provide />
+        </>
+        
     )
 }
 
