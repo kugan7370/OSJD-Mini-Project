@@ -1,8 +1,9 @@
 import React from 'react'
+import Header from '../components/Service/Header'
 
 function Service() {
     return (
-        <div>Service</div>
+        <Header />
     )
 }
 
