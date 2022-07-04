@@ -17,7 +17,9 @@ function Header() {
 
             <div className="flex space-x-4">
                 <MdSearch className=' text-2xl text-white' />
-                <MdAccountCircle className=' text-2xl text-white' />
+                <Link to={'/signin'}>
+                    <MdAccountCircle className=' text-2xl text-white' />
+                </Link>
             </div>
         </div>
     )
