@@ -1,6 +1,6 @@
-import React from 'react'
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+
+import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { logout, userRegister } from '../Features/User/userSlicer'
 
@@ -10,7 +10,25 @@ function SignUP() {
     const [confirmPassword, setconfirmPassword] = useState('')
     const [username, setusername] = useState('')
 
+
     const dispatch = useDispatch();
+    const userdata = useSelector((state) => state.users.user)
+
+    const navigation = useNavigate()
+
+
+    useEffect(() => {
+        if (userdata) {
+            const { token, user } = userdata
+
+
+            if (user && token) {
+                // console.log(user);
+                navigation('/')
+            }
+        }
+    }, [userdata])
+
 
     const onSubmit = () => {
         const user = {

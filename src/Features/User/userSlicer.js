@@ -8,6 +8,8 @@ const initialState = {
     message: '',
 }
 
+
+//signin action
 export const fetchUser = createAsyncThunk('user/fetch', async (user) => {
 
     const results = await axios.post('http://localhost:8080/user/signin', {
@@ -26,7 +28,7 @@ export const fetchUser = createAsyncThunk('user/fetch', async (user) => {
 })
 
 
-
+//signup action
 export const userRegister = createAsyncThunk('user/register', async (user) => {
     const results = await axios.post('http://localhost:8080/user/signup', {
         email: user.email,
@@ -38,15 +40,33 @@ export const userRegister = createAsyncThunk('user/register', async (user) => {
     return results.data;
 })
 
+//logout action
+export const Logout = createAsyncThunk('user/logout', () => {
+    localStorage.clear();
+})
+
+
+
+//isuseraction
+export const isUser = createAsyncThunk('user/isUser', () => {
+    const token = localStorage.getItem('token')
+    if (token) {
+
+        const user = JSON.parse(localStorage.getItem('user'))
+        return { user, token }
+    }
+
+    else {
+        return null;
+    }
+})
+
+
+
+
 const userSlicer = createSlice({
     name: 'users',
     initialState,
-    reducers: {
-        logout: (state) => {
-            state.loading = false;
-            state.user = null;
-        }
-    },
     extraReducers: (builder) => {
         builder.addCase(fetchUser.pending, (state) => {
             state.loading = true;
@@ -63,9 +83,19 @@ const userSlicer = createSlice({
             state.user = actions.payload;
             state.message = 'Successfully Registered';
         })
+        builder.addCase(Logout.fulfilled, (state) => {
+            state.loading = false;
+            state.user = null;
+            state.message = 'Successfuly Logout';
+        })
+        builder.addCase(isUser.fulfilled, (state, actions) => {
+            state.loading = false;
+            state.user = actions.payload;
+            state.message = '';
+        })
     }
 });
 
-export const { logout } = userSlicer.actions
+//export const { logout } = userSlicer.actions
 
 export default userSlicer.reducer

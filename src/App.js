@@ -13,45 +13,45 @@ import Home from './Pages/Home';
 import Details from './components/Details/Details';
 import SignIn from './Pages/SignIn';
 import SignUP from './Pages/SignUp';
-
+import { useEffect } from 'react';
+import ProtectedRoutes from './HOC/ProtectedRoutes';
+import { isUser } from './Features/User/userSlicer';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 
 
 
 function App() {
-  const token = localStorage.getItem('token')
-  const users = JSON.parse(localStorage.getItem('user'))
+  const dispatch = useDispatch();
+  const userdata = useSelector((state) => state.users.user)
+
+  useEffect(() => {
+    if (!userdata) {
+      dispatch(isUser())
+    }
 
 
+  }, [userdata, dispatch])
 
-  const user = null;
 
 
   return (
     <div className="App">
       <Header />
-
       <Routes>
+        <Route path="/" element={<ProtectedRoutes><Home /></ProtectedRoutes>} />
+        <Route path="/contact" element={<ProtectedRoutes><Contact /></ProtectedRoutes>} />
+        <Route path="/about" element={<ProtectedRoutes><About /></ProtectedRoutes>} />
+        <Route path="/service" element={<ProtectedRoutes><Service /></ProtectedRoutes>} />
+        <Route path="/detail/:id" element={<ProtectedRoutes><Details /></ProtectedRoutes>} />
+        <Route path="/signup" element={<SignUP />} />
+        <Route path="/signin" element={<SignIn />} />
 
-        {!user ? (
-          <>
-            <Route path="/signin" element={<SignIn />} />
-            <Route path="/signup" element={<SignUP />} />
-          </>
-        ) : (
-          <>
-            <Route path="/" element={<Home />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/service" element={<Service />} />
-            <Route path="/detail/:id" element={<Details />} />
-          </>
-        )
-        }
+
       </Routes>
 
-    </div>
+    </div >
   );
 }
 
