@@ -17,6 +17,7 @@ import { useEffect } from 'react';
 import ProtectedRoutes from './HOC/ProtectedRoutes';
 import { isUser } from './Features/User/userSlicer';
 import { useDispatch, useSelector } from 'react-redux';
+import JerseyCatergory from './components/Category/JerseyCatergory';
 
 
 
@@ -44,7 +45,8 @@ function App() {
         <Route path="/contact" element={<ProtectedRoutes><Contact /></ProtectedRoutes>} />
         <Route path="/about" element={<ProtectedRoutes><About /></ProtectedRoutes>} />
         <Route path="/service" element={<ProtectedRoutes><Service /></ProtectedRoutes>} />
-        <Route path="/detail/:id" element={<ProtectedRoutes><Details /></ProtectedRoutes>} />
+        <Route path="/detail/:id" element={<ProtectedRoutes><JerseyCatergory /></ProtectedRoutes>} />
+        <Route path="/detail/Order/:id" element={<ProtectedRoutes><Details /></ProtectedRoutes>} />
         <Route path="/signup" element={<SignUP />} />
         <Route path="/signin" element={<SignIn />} />
 

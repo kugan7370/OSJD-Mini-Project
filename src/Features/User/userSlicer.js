@@ -5,7 +5,7 @@ import { MdPassword } from 'react-icons/md';
 const initialState = {
     loading: false,
     user: null,
-    message: '',
+    message: null,
 }
 
 

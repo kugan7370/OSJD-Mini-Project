@@ -1,16 +1,43 @@
 import React, { useEffect, useState } from 'react'
 import { AiOutlinePlus } from "react-icons/ai";
 import { GrFormSubtract } from "react-icons/gr";
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { jerseyCatDatas } from '../../Data/JerserCatergory';
+import { getJersey } from '../../Features/Admin/GetJerseySlicer';
+
+
 function Details() {
-    const [quantity, setquantity] = useState(1)
     const { id } = useParams();
-    const [result, setresult] = useState()
+    const [jerseyDetails, setjerseyDetails] = useState()
+
+    const categoryDatas = useSelector((state) => state.Jerseys.Jerseys)
+
     useEffect(() => {
-        setresult(jerseyCatDatas.filter((jerseyCatData) => jerseyCatData.id == id))
+        if (categoryDatas) {
+            const Jeseydetail = categoryDatas.filter((jersey) => jersey._id == id)
+            setjerseyDetails(Jeseydetail)
+        }
     }, [id])
 
+
+
+
+
+    // const dispatch = useDispatch()
+
+    const [quantity, setquantity] = useState(1)
+
+    const [result, setresult] = useState()
+
+
+
+    // useEffect(() => {
+    //     const getJerseys = () => {
+    //         dispatch(getJersey())
+    //     }
+    //     getJerseys();
+    // }, [])
 
 
 
@@ -27,8 +54,8 @@ function Details() {
                         <p className='text-center text-4xl text-white p-6 capitalize '>Customize your Jersey</p>
                     </div>
                     <div className=" flex justify-center items-center">
-                        <div className="image-container p-10 h-[520px] w-[450px] ">
-                            {result && <img className='w-full h-full bg-contain hover:duration-1000 hover:scale-[110%] ' src={result[0].image} alt="" />}
+                        <div className="image-container p-10 h-[620px] w-[550px] ">
+                            {jerseyDetails && <img className='w-full h-full bg-contain  hover:scale-[110%] duration-500 ' src={jerseyDetails[0].image} alt="" />}
                         </div>
                     </div>
                 </div>
@@ -38,7 +65,7 @@ function Details() {
                             {/* title and price */}
                             <div className='title'>
                                 <p className='text-4xl font-bold '>J-Mask® Custom</p>
-                                <p className='text-4xl font-semibold mt-4'>7,78€</p>
+                                {jerseyDetails && <p className='text-4xl font-semibold mt-4'>{`LKR, ${jerseyDetails[0].price}`}</p>}
                             </div>
 
                             <div className="size">
