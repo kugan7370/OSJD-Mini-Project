@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+import Header from './Componants/Header';
+=======
 import Header from './components/Header';
 import {
   BrowserRouter,
@@ -18,7 +20,9 @@ import SportsCat from './Pages/SportsCat';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App"
+     <Header />
+=======
       <Header />
 
       <Routes>
