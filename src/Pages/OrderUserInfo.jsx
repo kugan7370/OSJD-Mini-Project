@@ -3,7 +3,8 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCartDetails } from "../Features/User/cartSlicer";
 import { AddOrderDetails } from "../Features/User/orderSlicer";
-
+import { loadStripe } from "@stripe/stripe-js";
+import axios from "axios";
 function OrderUserInfo() {
   const getCarts = useSelector((state) => state.cart.carts);
 
@@ -16,6 +17,44 @@ function OrderUserInfo() {
 
   const dispatch = useDispatch();
 
+  // const stripePromise = loadStripe(
+  //   "pk_test_eOTMlr8usx1ctymXqrik0ls700lQCsX2UB"
+  // );
+
+  const handlePayment = async () => {
+    if (getCarts?.length > 0) {
+      const orderData = {
+        fullname,
+        address,
+        zipCode,
+        phone,
+        country,
+        state,
+        getCarts,
+      };
+      // dispatch(AddOrderDetails(orderData)).then(() => {
+      //   dispatch(getCartDetails());
+      // });
+
+      try {
+        const token = localStorage.getItem("token");
+        await axios({
+          method: "post",
+          url: "http://localhost:8080/user/create-payment-intent",
+          headers: { Authorization: `Bearer ${token}` },
+          data: orderData,
+        }).then((res) => {
+          if (res.data.url) {
+            console.log("final", res.data.url);
+            window.location.href = res.data.url;
+          }
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  };
+
   const orderSubmit = () => {
     if (getCarts?.length > 0) {
       const orderData = {
@@ -27,9 +66,9 @@ function OrderUserInfo() {
         state,
         getCarts,
       };
-      dispatch(AddOrderDetails(orderData)).then(() => {
-        dispatch(getCartDetails());
-      });
+      // dispatch(AddOrderDetails(orderData)).then(() => {
+      //   dispatch(getCartDetails());
+      // });
     }
   };
 
@@ -133,7 +172,7 @@ function OrderUserInfo() {
           </div>
 
           <div
-            onClick={orderSubmit}
+            onClick={handlePayment}
             className="p-3   rounded-sm hover:bg-slate-800 text-center bg-black"
           >
             <p className=" font-medium text-white ">Place Order</p>
