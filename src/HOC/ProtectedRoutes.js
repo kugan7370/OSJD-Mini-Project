@@ -12,7 +12,7 @@ function ProtectedRoutes({ children }) {
         if (userdata) {
 
             if (!userdata.user) {
-                navigation('/signin')
+                navigation('/')
             }
 
 

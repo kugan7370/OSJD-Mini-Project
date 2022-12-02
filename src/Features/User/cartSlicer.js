@@ -13,7 +13,8 @@ const initialState = {
 //add into card
 export const AddCartDetails = createAsyncThunk('card/add', async (cardData) => {
     const token = localStorage.getItem('token')
-    console.log(token);
+
+
     try {
         const addCartResults = await axios({
             method: "post",
@@ -41,7 +42,7 @@ export const AddCartDetails = createAsyncThunk('card/add', async (cardData) => {
             });
             // alert(e.response.data.error)
         }
-        console.log(e);
+        // console.log(e);
     }
 
 })

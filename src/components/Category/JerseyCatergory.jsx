@@ -27,7 +27,7 @@ function JerseyCatergory() {
       );
       setjerseyDetails(Jeseydetail);
     }
-  }, [id]);
+  }, []);
 
   return (
     <div className="jerycatergory px-8 mt-8">

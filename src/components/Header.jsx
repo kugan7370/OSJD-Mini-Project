@@ -39,19 +39,18 @@ function Header() {
   }, []);
 
   const onLogout = () => {
-    dispatch(Logout());
+    dispatch(Logout()).then(() => {
+      dispatch(getCartDetails());
+    });
   };
 
   return (
     <div className="bg-[#0c0b0c] bg-red py-4 px-20 flex items-center sticky top-0 z-10">
       {/* <div className=" uppercase text-3xl font-extrabold text-white ">OSJD</div> */}
-      {!userdetails ? (
+
+      <Link to="/">
         <img src="/images/logo4.png" alt="LOGO" className=" w-36  " />
-      ) : (
-        <Link to="/">
-          <img src="/images/logo4.png" alt="LOGO" className=" w-36  " />
-        </Link>
-      )}
+      </Link>
 
       <ul className=" flex space-x-10 m-auto">
         <Link to="/">
@@ -78,16 +77,22 @@ function Header() {
           )}
         </div>
 
-        {userdata && (
+        {userdata ? (
           <p className="text-white" onClick={onLogout}>
             Logout
           </p>
+        ) : (
+          <Link to={"/signin"}>
+            <p className="text-white">Sign in</p>
+          </Link>
         )}
         <Link to={"/CheckOut"}>
           <div className="relative">
             <BsFillBasket2Fill className="text-white text-[22px]" />
             <div className="-top-3 left-6 absolute  rounded-full w-5 h-5 p-1 bg-white flex justify-center items-center">
-              <p className="text-[10px] font-semibold">{getCarts?.length}</p>
+              <p className="text-[10px] font-semibold">
+                {getCarts?.length || 0}
+              </p>
             </div>
           </div>
         </Link>

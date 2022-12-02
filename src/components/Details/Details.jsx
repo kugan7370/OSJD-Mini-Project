@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import { GrFormSubtract } from "react-icons/gr";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import { jerseyCatDatas } from "../../Data/JerserCatergory";
 import { getJersey } from "../../Features/Admin/GetJerseySlicer";
 import { AddCartDetails, getCartDetails } from "../../Features/User/cartSlicer";
@@ -21,6 +22,7 @@ function Details() {
   }, [id]);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [quantity, setquantity] = useState(1);
   const [size, setSize] = useState("");
@@ -46,6 +48,13 @@ function Details() {
       jersey_image: jerseyDetails[0].image,
     };
     dispatch(AddCartDetails(OrderDetals)).then(() => {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        navigate("/signin");
+        toast.error("Need to Signin", {
+          position: toast.POSITION.BOTTOM_RIGHT,
+        });
+      }
       dispatch(getCartDetails());
     });
     // dispatch(getCartDetails());
