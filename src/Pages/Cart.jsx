@@ -2,9 +2,10 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import CartProduct from "../components/CartProduct/CartProduct";
 
-function CheckOut() {
+function Cart() {
   const getCarts = useSelector((state) => state.cart.carts);
   //   const [getPriceList, setgetPriceList] = useState();
   const [subTotal, setsubTotal] = useState(0.0);
@@ -30,8 +31,8 @@ function CheckOut() {
       </div>
       {/* checkout */}
       {getCarts && (
-        <div className="border-[1px]  border-gray-200  h-[300px] sticky top-[160px]">
-          <div className="flex flex-col space-y-3">
+        <div className="  h-[300px] sticky top-[160px]">
+          <div className="flex flex-col space-y-3 border-[1px]  border-gray-200">
             <div className="flex justify-between px-6 border-b-[1px] py-3">
               <p className="text-xl ">Sub Total :</p>
               <p className="text-xl ">{subTotal} </p>
@@ -49,10 +50,16 @@ function CheckOut() {
               <p className="text-xl font-semibold">{subTotal}</p>
             </div>
           </div>
+
+          <Link to={"/userOrderInfo"}>
+            <div className="p-3 mt-2 rounded-sm hover:bg-slate-800 text-center bg-black">
+              <p className=" font-medium text-white ">Check Out</p>
+            </div>
+          </Link>
         </div>
       )}
     </div>
   );
 }
 
-export default CheckOut;
+export default Cart;

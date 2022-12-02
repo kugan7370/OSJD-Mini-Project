@@ -86,7 +86,7 @@ function Header() {
             <p className="text-white">Sign in</p>
           </Link>
         )}
-        <Link to={"/CheckOut"}>
+        <Link to={"/Cart"}>
           <div className="relative">
             <BsFillBasket2Fill className="text-white text-[22px]" />
             <div className="-top-3 left-6 absolute  rounded-full w-5 h-5 p-1 bg-white flex justify-center items-center">
