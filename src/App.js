@@ -20,6 +20,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import JerseyCatergory from './components/Category/JerseyCatergory';
 import OrderUserInfo from './Pages/OrderUserInfo';
 import Cart from './Pages/Cart';
+import Success from './Pages/Success';
+import Erorr404 from './Pages/Erorr404';
+import Failed from './Pages/Failed';
+import SportsCategory from './components/Category/SportsCategory';
 
 
 
@@ -50,9 +54,13 @@ function App() {
         <Route path="/detail/:id" element={<JerseyCatergory />} />
         <Route path="/detail/Order/:id" element={<Details />} />
         <Route path="/Cart" element={<ProtectedRoutes><Cart /></ProtectedRoutes>} />
-        <Route path="/userOrderInfo" element={<OrderUserInfo />} />
+        <Route path="/userOrderInfo" element={<ProtectedRoutes><OrderUserInfo /></ProtectedRoutes>} />
         <Route path="/signup" element={<SignUP />} />
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/success" element={<Success />} />
+        <Route path="/failed" element={<Failed />} />
+        <Route path="/sports" element={<SportsCategory />} />
+        <Route path="*" element={<Erorr404 />} />
 
 
       </Routes>

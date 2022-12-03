@@ -88,7 +88,9 @@ function Details() {
               <div className="title">
                 <p className="text-4xl font-bold ">J-Mask® Custom</p>
                 {jerseyDetails && (
-                  <p className="text-4xl font-semibold mt-4">{`LKR, ${jerseyDetails[0].price}`}</p>
+                  <p className="text-4xl font-semibold mt-4">{`$${parseFloat(
+                    jerseyDetails[0].price
+                  ).toFixed(2)}`}</p>
                 )}
               </div>
 

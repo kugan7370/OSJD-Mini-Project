@@ -30,12 +30,12 @@ function Cart() {
           ))}
       </div>
       {/* checkout */}
-      {getCarts && (
+      {getCarts?.length > 0 && (
         <div className="  h-[300px] sticky top-[160px]">
           <div className="flex flex-col space-y-3 border-[1px]  border-gray-200">
             <div className="flex justify-between px-6 border-b-[1px] py-3">
               <p className="text-xl ">Sub Total :</p>
-              <p className="text-xl ">{subTotal} </p>
+              <p className="text-xl ">${subTotal} </p>
             </div>
             <div className="flex justify-between px-6 border-b-[1px] py-3">
               <p className="text-xl ">Total Count :</p>
@@ -43,11 +43,11 @@ function Cart() {
             </div>
             <div className="flex justify-between px-6 border-b-[1px] py-3">
               <p className="text-xl ">Shipping :</p>
-              <p className="text-xl ">00.00</p>
+              <p className="text-xl ">$00.00</p>
             </div>
             <div className="flex justify-between px-6  py-3">
               <p className="text-xl  font-semibold">Grand Total :</p>
-              <p className="text-xl font-semibold">{subTotal}</p>
+              <p className="text-xl font-semibold">${subTotal}</p>
             </div>
           </div>
 

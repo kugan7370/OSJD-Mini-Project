@@ -45,7 +45,7 @@ function CartProduct({ cartItem }) {
 
         {/* price */}
         <div className="flex justify-center items-center col-span-3">
-          <p>Rs. {jerseyPrice}</p>
+          <p>${jerseyPrice}</p>
         </div>
         {/* remove */}
         <div className="flex justify-center items-center  col-span-3">

@@ -47,7 +47,9 @@ function JerseyCatergory() {
                   <span className="uppercase font-semibold text-center mt-4 ">
                     {jerseyDetail.type}
                   </span>
-                  <span className="text-center text-gray-400">{`LKR, ${jerseyDetail?.price}`}</span>
+                  <span className="text-center text-gray-400">{`$${parseFloat(
+                    jerseyDetail?.price
+                  ).toFixed(2)}`}</span>
                   {/* {!jerseyCatData.addCard ? <AiOutlineHeart className='absolute top-10 right-6 text-lg text-red-500' /> : <AiFillHeart className='absolute top-10  text-lg text-red-500 right-6' />} */}
                 </div>
               </Link>
